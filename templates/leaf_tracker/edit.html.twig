@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LeafTracker{% endblock %}
+
+{% block body %}
+    <h1>Edit LeafTracker</h1>
+
+    {{ include('leaf_tracker/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('leaf_tracker_index') }}">back to list</a>
+
+    {{ include('leaf_tracker/_delete_form.html.twig') }}
+{% endblock %}

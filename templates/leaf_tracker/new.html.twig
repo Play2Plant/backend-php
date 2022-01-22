@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LeafTracker{% endblock %}
+
+{% block body %}
+    <h1>Create new LeafTracker</h1>
+
+    {{ include('leaf_tracker/_form.html.twig') }}
+
+    <a href="{{ path('leaf_tracker_index') }}">back to list</a>
+{% endblock %}

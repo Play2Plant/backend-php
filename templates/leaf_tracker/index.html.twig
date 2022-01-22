@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LeafTracker index{% endblock %}
+
+{% block body %}
+    <h1>LeafTracker index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>WalletAddress</th>
+                <th>StepNumber</th>
+                <th>StartDate</th>
+                <th>LastRecordDate</th>
+                <th>GpsLat</th>
+                <th>GpsLong</th>
+                <th>WifiRadar</th>
+                <th>Ip</th>
+                <th>ApiKey</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for leaf_tracker in leaf_trackers %}
+            <tr>
+                <td>{{ leaf_tracker.id }}</td>
+                <td>{{ leaf_tracker.walletAddress }}</td>
+                <td>{{ leaf_tracker.stepNumber }}</td>
+                <td>{{ leaf_tracker.startDate ? leaf_tracker.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ leaf_tracker.lastRecordDate ? leaf_tracker.lastRecordDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ leaf_tracker.gpsLat }}</td>
+                <td>{{ leaf_tracker.gpsLong }}</td>
+                <td>{{ leaf_tracker.wifiRadar }}</td>
+                <td>{{ leaf_tracker.ip }}</td>
+                <td>{{ leaf_tracker.apiKey }}</td>
+                <td>
+                    <a href="{{ path('leaf_tracker_show', {'id': leaf_tracker.id}) }}">show</a>
+                    <a href="{{ path('leaf_tracker_edit', {'id': leaf_tracker.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('leaf_tracker_new') }}">Create new</a>
+{% endblock %}

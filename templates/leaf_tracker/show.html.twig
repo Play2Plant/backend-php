@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LeafTracker{% endblock %}
+
+{% block body %}
+    <h1>LeafTracker</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ leaf_tracker.id }}</td>
+            </tr>
+            <tr>
+                <th>WalletAddress</th>
+                <td>{{ leaf_tracker.walletAddress }}</td>
+            </tr>
+            <tr>
+                <th>StepNumber</th>
+                <td>{{ leaf_tracker.stepNumber }}</td>
+            </tr>
+            <tr>
+                <th>StartDate</th>
+                <td>{{ leaf_tracker.startDate ? leaf_tracker.startDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LastRecordDate</th>
+                <td>{{ leaf_tracker.lastRecordDate ? leaf_tracker.lastRecordDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>GpsLat</th>
+                <td>{{ leaf_tracker.gpsLat }}</td>
+            </tr>
+            <tr>
+                <th>GpsLong</th>
+                <td>{{ leaf_tracker.gpsLong }}</td>
+            </tr>
+            <tr>
+                <th>WifiRadar</th>
+                <td>{{ leaf_tracker.wifiRadar }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ leaf_tracker.ip }}</td>
+            </tr>
+            <tr>
+                <th>ApiKey</th>
+                <td>{{ leaf_tracker.apiKey }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('leaf_tracker_index') }}">back to list</a>
+
+    <a href="{{ path('leaf_tracker_edit', {'id': leaf_tracker.id}) }}">edit</a>
+
+    {{ include('leaf_tracker/_delete_form.html.twig') }}
+{% endblock %}
