@@ -10,13 +10,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
+use Web3\Web3;
+use Web3\ValueObjects\{Transaction, Wei};
+
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        $web3 = new Web3('http://127.0.0.1:7545');
+        $accounts = $web3->eth()->accounts();
+        dump($web3->eth()->accounts());
         // return parent::index();
-
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
@@ -37,7 +42,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Backend Php');
+            ->setTitle('Play 2 Plant Dashboard');
     }
 
     public function configureMenuItems(): iterable
