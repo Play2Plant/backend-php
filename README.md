@@ -31,9 +31,13 @@ symfony serve
 
 ## In localhost env :
     Admin on http://127.0.0.1:8000/admin    
-    ![screenshot Back Office](backOfficeP2plant.png)
+
+![screenshot Back Office](backOfficeP2plant.png)
+
     JSON API http://127.0.0.1:8000/api    
-    ![screenshot API](apiPlatformLeaf.png)
+
+![screenshot API](apiPlatformLeaf.png)
+
 ## 📜 Deploy
 
 [Play 2 Plant dApp](https://play2plant.github.io/p2p-dApp/)
